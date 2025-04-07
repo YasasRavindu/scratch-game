@@ -1,0 +1,215 @@
+{
+  "columns": 3,
+  "rows": 3,
+  "symbols": {
+    "A": {
+      "reward_multiplier": 100,
+      "type": "standard"
+    },
+    "B": {
+      "reward_multiplier": 50,
+      "type": "standard"
+    },
+    "C": {
+      "reward_multiplier": 20,
+      "type": "standard"
+    },
+    "D": {
+      "reward_multiplier": 10,
+      "type": "standard"
+    },
+    "E": {
+      "reward_multiplier": 5,
+      "type": "standard"
+    },
+    "F": {
+      "reward_multiplier": 2,
+      "type": "standard"
+    },
+    "50x": {
+      "reward_multiplier": 50,
+      "type": "bonus",
+      "impact": "multiply_reward"
+    },
+    "20x": {
+      "reward_multiplier": 20,
+      "type": "bonus",
+      "impact": "multiply_reward"
+    },
+    "+5000": {
+      "extra": 5000,
+      "type": "bonus",
+      "impact": "extra_bonus"
+    },
+    "+2000": {
+      "extra": 2000,
+      "type": "bonus",
+      "impact": "extra_bonus"
+    },
+    "MISS": {
+      "type": "bonus",
+      "impact": "miss"
+    }
+  },
+  "probabilities": {
+    "standard_symbols": [
+      {
+        "column": 0,
+        "row": 0,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 0,
+        "row": 1,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 0,
+        "row": 2,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 1,
+        "row": 0,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 1,
+        "row": 1,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 1,
+        "row": 2,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 2,
+        "row": 0,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 2,
+        "row": 1,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      },
+      {
+        "column": 2,
+        "row": 2,
+        "symbols": {
+          "A": 1,
+          "B": 2,
+          "C": 3,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        }
+      }
+    ],
+    "bonus_symbols": {
+      "symbols": {
+        "50x": 1,
+        "20x": 2,
+        "+5000": 3,
+        "+2000": 4,
+        "MISS": 5
+      }
+    }
+  },
+  "win_combinations": {
+    "same_symbol_3_times": {
+      "reward_multiplier": 2,
+      "when": "same_symbols",
+      "count": 3,
+      "group": "same_symbols"
+    },
+    "same_symbol_4_times": {
+      "reward_multiplier": 3,
+      "when": "same_symbols",
+      "count": 4,
+      "group": "same_symbols"
+    },
+    "same_symbol_5_times": {
+      "reward_multiplier": 5,
+      "when": "same_symbols",
+      "count": 5,
+      "group": "same_symbols"
+    },
+    "same_symbols_horizontally": {
+      "reward_multiplier": 3,
+      "when": "linear_symbols",
+      "group": "horizontally_linear_symbols",
+      "covered_areas": [
+        ["0:0", "0:1", "0:2"],
+        ["1:0", "1:1", "1:2"],
+        ["2:0", "2:1", "2:2"]
+      ]
+    },
+    "same_symbols_vertically": {
+      "reward_multiplier": 3,
+      "when": "linear_symbols",
+      "group": "vertically_linear_symbols",
+      "covered_areas": [
+        ["0:0", "1:0", "2:0"],
+        ["0:1", "1:1", "2:1"],
+        ["0:2", "1:2", "2:2"]
+      ]
+    }
+  }
+}

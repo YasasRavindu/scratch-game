@@ -13,12 +13,26 @@ public class GameEngine {
     private final WinningCombinationDetector winningCombinationDetector;
     private final RewardCalculator rewardCalculator;
 
+    // Original constructor (calls this() with real implementations)
     public GameEngine(GameConfig config) {
-        this.config = config;
-        this.matrixGenerator = new MatrixGenerator(config);
-        this.winningCombinationDetector = new WinningCombinationDetector(config);
-        this.rewardCalculator = new RewardCalculator(config);
+        this(config,
+                new MatrixGenerator(config),
+                new WinningCombinationDetector(config),
+                new RewardCalculator(config));
     }
+
+    public GameEngine(
+            GameConfig config,
+            MatrixGenerator matrixGenerator,
+            WinningCombinationDetector winningCombinationDetector,
+            RewardCalculator rewardCalculator
+    ) {
+        this.config = config;
+        this.matrixGenerator = matrixGenerator;
+        this.winningCombinationDetector = winningCombinationDetector;
+        this.rewardCalculator = rewardCalculator;
+    }
+
 
     public GameResult play(double bettingAmount) {
         // Generate the matrix
@@ -52,7 +66,7 @@ public class GameEngine {
         return new GameResult(matrix, reward, winningCombinations.isEmpty() ? null : winningCombinations, appliedBonusSymbol);
     }
 
-    private Map<String, List<Position>> findAllSymbolPositions(String[][] matrix) {
+    public Map<String, List<Position>> findAllSymbolPositions(String[][] matrix) {
         Map<String, List<Position>> positions = new HashMap<>();
 
         for (int row = 0; row < matrix.length; row++) {
@@ -71,7 +85,7 @@ public class GameEngine {
         return positions;
     }
 
-    private List<String> findBonusSymbols(String[][] matrix) {
+    public List<String> findBonusSymbols(String[][] matrix) {
         List<String> bonusSymbols = new ArrayList<>();
 
         for (String[] strings : matrix) {
